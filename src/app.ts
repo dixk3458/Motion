@@ -1,4 +1,6 @@
 import { ImageComponent } from './components/page/item/image.js';
+import { NoteComponent } from './components/page/item/note.js';
+import { TodoComponent } from './components/page/item/todo.js';
 import { PageCompoent } from './components/page/page.js';
 
 class App {
@@ -13,6 +15,12 @@ class App {
     );
 
     image.attachTo(appRoot, 'beforebegin');
+
+    const note = new NoteComponent('Note Title', 'Note Body');
+    note.attachTo(appRoot, 'beforebegin');
+
+    const todo = new TodoComponent('Todo Title', '할것들');
+    todo.attachTo(appRoot, 'beforebegin');
   }
 }
 
