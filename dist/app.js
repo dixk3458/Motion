@@ -8,13 +8,13 @@ class App {
         this.page = new PageCompoent();
         this.page.attachTo(appRoot);
         const image = new ImageComponent('imageComponent', 'https://images.unsplash.com/photo-1700335739138-150bf313be41?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw4fHx8ZW58MHx8fHx8');
-        image.attachTo(appRoot, 'beforebegin');
         const note = new NoteComponent('Note Title', 'Note Body');
-        note.attachTo(appRoot, 'beforebegin');
         const todo = new TodoComponent('Todo Title', '할것들');
-        todo.attachTo(appRoot, 'beforebegin');
         const video = new VideoComponent('에스파', 'https://www.youtube.com/embed/D8VEhcPeSlc');
-        video.attachTo(appRoot, 'beforebegin');
+        this.page.addChild(image);
+        this.page.addChild(note);
+        this.page.addChild(video);
+        this.page.addChild(todo);
     }
 }
 new App(document.querySelector('.document'));
