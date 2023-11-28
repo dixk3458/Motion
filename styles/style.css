@@ -13,6 +13,7 @@
   --bg-blue-color: #74bde8;
   --bg-blue-varient-color: #40abea;
   --document-bg-color: #fcf5eb64;
+  --font-black-color: #292729;
 }
 
 li {
@@ -21,7 +22,7 @@ li {
 }
 
 label {
-  color: var(--accent-color);
+  color: var(--font-black-color);
 }
 
 * {
@@ -130,4 +131,8 @@ body {
   border: 1px solid var(--accent-varient-color);
   border-radius: 0.5rem;
   box-shadow: 2px 2px 20px var(--border-color-black);
+}
+
+.form__container > label {
+  color: var(--border-color-black);
 }
