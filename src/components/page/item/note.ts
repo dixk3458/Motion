@@ -6,7 +6,7 @@ export class NoteComponent extends BaseComponent<HTMLElement> {
   // BaseComponent를 이용할수있따.
   constructor(title: string, body: string) {
     super(`<section class="note">
-                <p class="note__title"></p>
+                <h3 class="page-item__title note__title"></h3>
                 <div class="note__body"></div>
         </section>`);
 

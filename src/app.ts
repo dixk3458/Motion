@@ -45,7 +45,7 @@ class App {
     );
 
     this.bindElementToDialog<TextSectionInput>(
-      '#new-note',
+      '#new-todo',
       TextSectionInput,
       (input: TextSectionInput) => new TodoComponent(input.title, input.body)
     );
