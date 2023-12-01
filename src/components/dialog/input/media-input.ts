@@ -1,5 +1,9 @@
 import { BaseComponent } from '../../component.js';
-import { MediaData } from '../dialog.js';
+
+export interface MediaData {
+  readonly title: string;
+  readonly url: string;
+}
 
 export class MediaSectionInput
   extends BaseComponent<HTMLElement>
@@ -11,12 +15,11 @@ export class MediaSectionInput
                 <label for="title">Title</label>
                 <input type="text" id="title" />
             </div>
-                <div class="form__container">
+            <div class="form__container">
                 <label for="url">URL</label>
-            <input type="text" id="url" />
+                <input type="text" id="url" />
             </div>
-        </div>
-      `);
+        </div>`);
   }
 
   get title(): string {

@@ -1,18 +1,21 @@
 import { Component } from './components/component.js';
+import { InputDialog } from './components/dialog/dialog.js';
 import {
-  InputDialog,
   MediaData,
+  MediaSectionInput,
+} from './components/dialog/input/media-input.js';
+import {
   TextData,
-} from './components/dialog/dialog.js';
-import { MediaSectionInput } from './components/dialog/input/media-input.js';
-import { TextSectionInput } from './components/dialog/input/text-input.js';
+  TextSectionInput,
+} from './components/dialog/input/text-input.js';
 import { ImageComponent } from './components/page/item/image.js';
 import { NoteComponent } from './components/page/item/note.js';
 import { TodoComponent } from './components/page/item/todo.js';
 import { VideoComponent } from './components/page/item/video.js';
+
 import {
   Composable,
-  PageCompoent,
+  PageComponent,
   PageItemComponent,
 } from './components/page/page.js';
 
@@ -22,8 +25,10 @@ type InputComponentConstructor<T extends (MediaData | TextData) & Component> = {
 
 class App {
   private readonly page: Component & Composable;
-  constructor(appRoot: HTMLElement, private dialogRoot: HTMLElement) {
-    this.page = new PageCompoent(PageItemComponent);
+
+  constructor(appRoot: HTMLElement, private documentRoot: HTMLElement) {
+    this.page = new PageComponent(PageItemComponent);
+
     this.page.attachTo(appRoot);
 
     this.bindElementToDialog<MediaSectionInput>(
@@ -59,23 +64,22 @@ class App {
     const element = document.querySelector(selector)! as HTMLButtonElement;
     element.addEventListener('click', () => {
       const dialog = new InputDialog();
+
       const input = new InputComponent();
 
       dialog.addChild(input);
-      dialog.attachTo(this.dialogRoot);
 
-      dialog.setOnCloseListener(() => {
-        dialog.removeFrom(this.dialogRoot);
+      dialog.setCloseListener(() => {
+        dialog.removeFrom(this.documentRoot);
       });
 
-      dialog.setOnSubmitListener(() => {
-        // 아이템을 만들어 추가
-        const section = makeSection(input);
-        this.page.addChild(section);
-        dialog.removeFrom(document.body);
+      dialog.setSubmitListener(() => {
+        const itemComponent = makeSection(input);
+        this.page.addChild(itemComponent);
+        dialog.removeFrom(this.documentRoot);
       });
 
-      dialog.attachTo(document.body);
+      dialog.attachTo(this.documentRoot);
     });
   }
 }

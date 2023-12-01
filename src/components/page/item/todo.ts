@@ -6,7 +6,8 @@ export class TodoComponent extends BaseComponent<HTMLElement> {
             <h3 class="page-item__title todo__title"></h3>
             <input type="checkbox" class="todo-checkbox" />
             <label for="todo-checkbox" class="todo-label"></label>
-        </section>`);
+        </section>
+      `);
 
     const titleElement = this.element.querySelector(
       '.todo__title'
@@ -15,7 +16,7 @@ export class TodoComponent extends BaseComponent<HTMLElement> {
 
     const todoElement = this.element.querySelector(
       '.todo-label'
-    )! as HTMLInputElement;
+    )! as HTMLLabelElement;
     todoElement.textContent = todo;
   }
 }
