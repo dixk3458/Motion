@@ -11,6 +11,8 @@ class App {
         this.documentRoot = documentRoot;
         this.page = new PageComponent(PageItemComponent);
         this.page.attachTo(appRoot);
+        this.page.addChild(new ImageComponent('이미지', 'https://plus.unsplash.com/premium_photo-1697898008701-e103bd39792d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw3fHx8ZW58MHx8fHx8'));
+        this.page.addChild(new VideoComponent('Video', 'https://youtu.be/SPNJgjqqUnI'));
         this.bindElementToDialog('#new-image', MediaSectionInput, (input) => new ImageComponent(input.title, input.url));
         this.bindElementToDialog('#new-video', MediaSectionInput, (input) => new VideoComponent(input.title, input.url));
         this.bindElementToDialog('#new-note', TextSectionInput, (input) => new NoteComponent(input.title, input.body));
