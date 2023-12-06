@@ -3,22 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles/style.css" />
-    <script type="module" src="./dist/app.js" defer></script>
-    <title>Motion</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/style.css" />
+    <script src="./dist/app.js" type="module"></script>
   </head>
   <body>
+    <!-- 스타일링을 위해 최상위 컨테이너를 만들어주자. -->
     <div class="app">
-      <header class="banner">
-        <h1 class="banner__title">Jaewoong's Motion Page</h1>
-        <ul class="control-panel">
-          <li><button id="new-image" class="create-button">Image</button></li>
-          <li><button id="new-video" class="create-button">Video</button></li>
-          <li><button id="new-note" class="create-button">Note</button></li>
-          <li><button id="new-todo" class="create-button">Todo</button></li>
+      <!-- 정적인 부분인 Header를 작성 -->
+      <header class="header">
+        <h1 class="header__title">Woong's Motion</h1>
+        <ul class="header__control-panel">
+          <!-- 각 버튼마다 다른 다이얼로그를 생성하기 때문에 id를 작성하자. -->
+          <li>
+            <button id="new-image" class="header__control-panel__button">
+              image
+            </button>
+          </li>
+          <li>
+            <button id="new-video" class="header__control-panel__button">
+              video
+            </button>
+          </li>
+          <li>
+            <button id="new-note" class="header__control-panel__button">
+              note
+            </button>
+          </li>
+          <li>
+            <button id="new-todo" class="header__control-panel__button">
+              todo
+            </button>
+          </li>
         </ul>
       </header>
-      <main class="document"></main>
+      <!-- 애플리케이션의 실질적인 내용이 들어간다. -->
+      <main class="main"></main>
       <footer class="footer">
         <p>© 2023 Jaewoong Jeong. All Rights Reserved.</p>
       </footer>

@@ -1,0 +1,264 @@
+/* CSS 변수 작성 */
+
+:root {
+  --main-color: #ffffff;
+  --main-color-varient: #f4f6f8;
+  --accent-color: #e6ffec;
+  --accent-color-varient: #ccffd8;
+  --header-color: #ddf4ff;
+  --header-color-varient: #bbdfff;
+  --dialog-color-opacity: #695ee829;
+  --dialog-color: #b5f187;
+  --item-color: #ececec;
+  --border-color: #d2d8df;
+  --text-color: #2c3640;
+  --text-color-red: #d2301d;
+}
+
+/* 최상위 스타일링 작성 */
+
+* {
+  box-sizing: border-box;
+}
+
+/* Body */
+
+body {
+  background-color: var(--main-color);
+  margin: 0;
+  /* 가운데 정렬을 위해 flex 박스 작성 */
+  display: flex;
+  justify-content: center;
+
+  /* viewport 사이즈의 웹 페이지 작성을 위해  */
+  width: 100vw;
+  height: 100vh;
+
+  font-size: 1.25rem;
+}
+
+/* ul & li*/
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  list-style: none;
+}
+
+/* button */
+
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* heading */
+h3 {
+  margin: 1rem 0;
+}
+
+/* App */
+
+.app {
+  /* 애플리케이션 최대 사이즈 지정을 위해  */
+  width: 100%;
+  max-width: 1000px;
+  height: 100%;
+
+  /* 애플리케이션의 자식 header,main,footer을 수직 정렬 */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+
+.header {
+  background-color: var(--header-color);
+  border-bottom: 2px solid var(--border-color);
+
+  /* 요소 중간 정렬 */
+  text-align: center;
+}
+
+.header__title {
+  margin: 20px;
+  color: var(--text-color);
+}
+
+.header__control-panel {
+  display: flex;
+  justify-content: center;
+}
+
+.header__control-panel__button {
+  background-color: var(--accent-color-varient);
+  padding: 1rem 3rem;
+  margin: 0.1rem 0.2rem;
+  border-radius: 2px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.main {
+  background-color: var(--main-color-varient);
+  height: 100%;
+  overflow-y: auto;
+  scrollbar-width: 6px;
+  scrollbar-color: var(--accent-color);
+  scrollbar-face-color: var(--dialog-color-opacity);
+}
+
+.main::-webkit-scrollbar {
+  /* Safari and Chrome */
+  background-color: var(--border-color);
+  width: 12px;
+}
+
+.main::-webkit-scrollbar-thumb {
+  /* Safari and Chrome */
+  background-color: var(--dialog-color-opacity);
+}
+
+.footer {
+  background-color: var(--header-color-varient);
+  border-top: 2px solid var(--border-color);
+  text-align: center;
+}
+
+/* 다이얼로그 */
+
+.dialog {
+  background-color: var(--dialog-color-opacity);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: 1.2rem;
+  z-index: 1;
+}
+
+.dialog__container {
+  background-color: var(--dialog-color);
+  display: flex;
+  flex-direction: column;
+  width: 32rem;
+  padding: 0.4rem;
+  box-shadow: RGB(57, 110, 82) 0px 30px 90px;
+  border-radius: 12px;
+}
+
+.dialog__closeBtn {
+  background-color: var(--main-color-varient);
+  align-self: flex-end;
+  padding: 0.2rem 0.5rem;
+  font-size: 1.25rem;
+  color: var(--text-color);
+  border-radius: 50%;
+  transition: all 1.25ms ease-in;
+}
+
+.dialog__closeBtn:hover,
+.dialog__closeBtn:focus {
+  transform: scale(1.1);
+  color: var(--text-color-red);
+}
+
+.dialog__input {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.4rem;
+  padding: 0.8rem 1rem;
+}
+
+.dialog__label {
+  background-color: var(--header-color-varient);
+  padding: 0.4rem;
+  flex: 1%;
+  text-align: center;
+  border: 1px;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+#dialog__title {
+  flex: 1 0 auto;
+  padding: 0.4rem;
+  font-size: 1.25rem;
+  border: none;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+#dialog__url,
+#dialog__body {
+  flex: 1 0 auto;
+  padding: 0.4rem;
+  font-size: 1.25rem;
+  border: none;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.dialog__submit {
+  background-color: var(--main-color-varient);
+  align-self: center;
+  padding: 0.2rem 0.4rem;
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 1.25ms ease-in;
+}
+
+.dialog__submit:hover,
+.dialog__submit:focus {
+  transform: scale(1.1);
+  background-color: var(--header-color-varient);
+}
+
+/* Main Item */
+
+.mainContainer {
+  margin: 0;
+}
+
+.main-item {
+  background-color: var(--item-color);
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 2rem;
+  margin: 1rem;
+  border-radius: 12px;
+}
+
+.main-item__closeBtn {
+  background-color: var(--header-color-varient);
+  align-self: flex-end;
+  padding: 0.2rem 0.5rem;
+  font-size: 1.25rem;
+  color: var(--text-color);
+  border-radius: 50%;
+  transition: all 1.25ms ease-in;
+}
+
+.main-item__closeBtn:hover,
+.main-item__closeBtn:focus {
+  transform: scale(1.1);
+  color: var(--text-color-red);
+}
+
+.todo__checkbox {
+  width: 1rem;
+  height: 1rem;
+}
+
+.mute-children * {
+  pointer-events: none;
+}
